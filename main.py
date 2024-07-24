@@ -7,7 +7,12 @@ def add_contact(list_contacts,name,email,phone):
   print(f"Contato {name} foi incluido com sucesso!")
   return
 
-def ver_lista():
+def visualize_list(list_contacts):
+  print("\n Contatos da agenda:")
+  for indice,item in enumerate(list_contacts,start=1):
+    status = "✓" if item["Favorito"] else " " 
+
+    print(f"{indice}. [{status} {item['Name']}]")
   return
 
 
@@ -31,6 +36,6 @@ while True:
     name = input("Insira o nome do contato:")
     email = input("Insira o email de contato:")
     phone = input("Insira o telefone de contato:")
-    add_contact(name,email,phone)
+    add_contact(list_contacts,name,email,phone)
   elif input_choice =="2":
-    ver_lista(list_contacts)
+    visualize_list(list_contacts)
